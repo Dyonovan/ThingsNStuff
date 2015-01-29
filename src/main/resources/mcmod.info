@@ -1,0 +1,15 @@
+[
+{
+  "modid": "thingsnstuff",
+  "name": "Things N' Stuff",
+  "description": "A collection of useful Items and Blocks.",
+  "version": "",
+  "mcversion": "1.7.10-10.13.2.1236",
+  "url": "http://www.dyonovan.com",
+  "updateUrl": "",
+  "authorList": ["Dyonovan", "pauljoda", "Dominance"],
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
