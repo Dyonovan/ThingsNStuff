@@ -1,9 +1,6 @@
 package com.dyonovan.thingsnstuff.renderer;
 
-import com.dyonovan.thingsnstuff.tileentity.TEBlockWire;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.client.IItemRenderer;
@@ -37,10 +34,13 @@ public class ItemRenderBlockWire implements IItemRenderer {
             this.render.renderTileEntityAt(this.tileentity, 0.0D, 0.0D, 0.0D, 0.0F);
         }*/
 
-        if(type != type.ENTITY && type != type.EQUIPPED){
+        if(type != ItemRenderType.ENTITY && type != ItemRenderType.EQUIPPED){
             GL11.glPushMatrix();
-            //GL11.glScalef(1.25F, 1.25F, 1.25F);
-            TileEntityRendererDispatcher.instance.renderTileEntityAt(new TEBlockWire(), 0.0D, 0.15D, 0.0D, 0.0F);
+            /*
+            GL11.glScalef(1.25F, 1.25F, 1.25F);
+            TileEntityRendererDispatcher.instance.renderTileEntityAt(new TEBlockWire(), 0.0D, 0.0D, 0.0D, 0.0F);
+            */
+            this.render.renderTileEntityAt(this.tileentity, 0.0D, 0.0D, 0.0D, 0.0F);
             GL11.glPopMatrix();
         }/*else if(type == type.ENTITY && !(item.getItem() instanceof ItemBlock)){
             GL11.glPushMatrix();

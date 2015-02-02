@@ -1,5 +1,7 @@
 package com.dyonovan.thingsnstuff.model;
 
+import com.dyonovan.thingsnstuff.tileentity.TEBlockWire;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -316,50 +318,62 @@ public class ModelWire extends ModelBase
         setRotation(rightFrame1, 0F, 0F, 0F);
     }
 
-    public void renderModel(float f5) {
-        midFrame1.render(f5);
-        midFrame2.render(f5);
-        midFrame3.render(f5);
-        midFrame4.render(f5);
-        midFrame5.render(f5);
-        midFrame6.render(f5);
-        midFrame7.render(f5);
-        midFrame8.render(f5);
-        midFrame9.render(f5);
-        midFrame10.render(f5);
-        midFrame11.render(f5);
-        midFrame12.render(f5);
-        midWire.render(f5);
-        topWire.render(f5);
-        bottomWire.render(f5);
-        backWire.render(f5);
-        frontWire.render(f5);
-        rightWire.render(f5);
-        leftWire.render(f5);
-        topFrame1.render(f5);
-        topFrame2.render(f5);
-        topFrame3.render(f5);
-        topFrame4.render(f5);
-        bottomFrame1.render(f5);
-        bottomFrame2.render(f5);
-        bottomFrame4.render(f5);
-        bottomFrame3.render(f5);
-        frontFrame1.render(f5);
-        frontFrame2.render(f5);
-        frontFrame3.render(f5);
-        frontFrame4.render(f5);
-        backFrame1.render(f5);
-        backFrame2.render(f5);
-        backFrame3.render(f5);
-        backFrame4.render(f5);
-        leftFrame1.render(f5);
-        leftFrame2.render(f5);
-        leftFrame3.render(f5);
-        leftFrame4.render(f5);
-        rightFrame2.render(f5);
-        rightFrame3.render(f5);
-        rightFrame4.render(f5);
-        rightFrame1.render(f5);
+    public void renderModel(float f, int x, int y, int z, boolean inHand) {
+        midFrame1.render(f);
+        midFrame2.render(f);
+        midFrame3.render(f);
+        midFrame4.render(f);
+        midFrame5.render(f);
+        midFrame6.render(f);
+        midFrame7.render(f);
+        midFrame8.render(f);
+        midFrame9.render(f);
+        midFrame10.render(f);
+        midFrame11.render(f);
+        midFrame12.render(f);
+        if (canConnect(x, y, z, "top") || inHand) {
+            topFrame1.render(f);
+            topFrame2.render(f);
+            topFrame3.render(f);
+            topFrame4.render(f);
+        }
+        if (canConnect(x, y, z, "bottom") || inHand) {
+            bottomFrame1.render(f);
+            bottomFrame2.render(f);
+            bottomFrame4.render(f);
+            bottomFrame3.render(f);
+        }
+        if (canConnect(x, y, z, "front") && !inHand) {
+            frontFrame1.render(f);
+            frontFrame2.render(f);
+            frontFrame3.render(f);
+            frontFrame4.render(f);
+        }
+        if (canConnect(x, y, z, "back") && !inHand) {
+            backFrame1.render(f);
+            backFrame2.render(f);
+            backFrame3.render(f);
+            backFrame4.render(f);
+        }
+        if (canConnect(x, y, z, "left") && !inHand) {
+            leftFrame1.render(f);
+            leftFrame2.render(f);
+            leftFrame3.render(f);
+            leftFrame4.render(f);
+        }
+        if (canConnect(x, y, z, "right") && !inHand) {
+        rightFrame2.render(f);
+        rightFrame3.render(f);
+        rightFrame4.render(f);
+        rightFrame1.render(f);
+        }
+        /*midWire.render(f);
+        topWire.render(f);
+        bottomWire.render(f);
+        backWire.render(f);
+        frontWire.render(f);
+        rightWire.render(f);
+        leftWire.render(f);*/
     }
 
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
@@ -423,4 +437,27 @@ public class ModelWire extends ModelBase
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }
 
+    private boolean canConnect(int x, int y, int z, String side) {
+
+        if (side == "top") {
+            if (Minecraft.getMinecraft().theWorld.getTileEntity(x, y + 1, z) instanceof TEBlockWire) return true;
+            else return false;
+        } else if (side == "bottom") {
+            if (Minecraft.getMinecraft().theWorld.getTileEntity(x, y - 1, z) instanceof TEBlockWire) return true;
+            else return false;
+        } else if (side == "front") {
+            if (Minecraft.getMinecraft().theWorld.getTileEntity(x, y, z - 1) instanceof TEBlockWire) return true;
+            else return false;
+        } else if (side == "back") {
+            if (Minecraft.getMinecraft().theWorld.getTileEntity(x, y, z + 1) instanceof TEBlockWire) return true;
+            else return false;
+        } else if (side == "left") {
+            if (Minecraft.getMinecraft().theWorld.getTileEntity(x - 1, y, z) instanceof TEBlockWire) return true;
+            else return false;
+        } else if (side == "right") {
+            if (Minecraft.getMinecraft().theWorld.getTileEntity(x + 1, y, z) instanceof TEBlockWire) return true;
+            else return false;
+        }
+        return false;
+    }
 }

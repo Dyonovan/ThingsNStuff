@@ -27,9 +27,9 @@ public class RenderBlockWire extends TileEntitySpecialRenderer {
 
         this.bindTexture(texture);
 
-        GL11.glPushMatrix();
-        this.model.renderModel(0.0625F);
-        GL11.glPopMatrix();
+        //GL11.glPushMatrix();
+        this.model.renderModel(0.0625F, tileentity.xCoord, tileentity.yCoord, tileentity.zCoord, (tileentity.getWorldObj() == null) ? true : false);
+        //GL11.glPopMatrix();
 
         GL11.glPopMatrix();
     }
