@@ -1,9 +1,9 @@
 package com.dyonovan.thingsnstuff.proxy;
 
 import com.dyonovan.thingsnstuff.handlers.BlockHandler;
-import com.dyonovan.thingsnstuff.renderer.ItemRenderBlockWire;
-import com.dyonovan.thingsnstuff.renderer.RenderBlockWire;
-import com.dyonovan.thingsnstuff.tileentity.TEBlockWire;
+import com.dyonovan.thingsnstuff.client.renderer.ItemRenderBlockWire;
+import com.dyonovan.thingsnstuff.client.renderer.RenderBlockWire;
+import com.dyonovan.thingsnstuff.common.tileentity.TEBlockWire;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;

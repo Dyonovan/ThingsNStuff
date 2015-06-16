@@ -1,8 +1,8 @@
-package com.dyonovan.thingsnstuff.blocks;
+package com.dyonovan.thingsnstuff.common.blocks;
 
 import com.dyonovan.thingsnstuff.ThingsNStuff;
 import com.dyonovan.thingsnstuff.lib.Constants;
-import com.dyonovan.thingsnstuff.tileentity.TEBlockWire;
+import com.dyonovan.thingsnstuff.common.tileentity.TEBlockWire;
 import com.dyonovan.thingsnstuff.util.Location;
 import com.dyonovan.thingsnstuff.util.WorldUtils;
 import cpw.mods.fml.relauncher.Side;

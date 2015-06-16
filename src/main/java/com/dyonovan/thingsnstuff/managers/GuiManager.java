@@ -1,7 +1,7 @@
 package com.dyonovan.thingsnstuff.managers;
 
-import com.dyonovan.thingsnstuff.container.ContainerTrashBag;
-import com.dyonovan.thingsnstuff.gui.GuiTrashBag;
+import com.dyonovan.thingsnstuff.common.container.ContainerTrashBag;
+import com.dyonovan.thingsnstuff.client.gui.GuiTrashBag;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

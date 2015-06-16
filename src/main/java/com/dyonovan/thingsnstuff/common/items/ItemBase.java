@@ -1,4 +1,4 @@
-package com.dyonovan.thingsnstuff.items;
+package com.dyonovan.thingsnstuff.common.items;
 
 import com.dyonovan.thingsnstuff.ThingsNStuff;
 import cpw.mods.fml.relauncher.Side;

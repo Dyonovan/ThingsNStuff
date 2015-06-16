@@ -1,6 +1,6 @@
 package com.dyonovan.thingsnstuff.managers;
 
-import com.dyonovan.thingsnstuff.items.ItemTrashBag;
+import com.dyonovan.thingsnstuff.common.items.ItemTrashBag;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

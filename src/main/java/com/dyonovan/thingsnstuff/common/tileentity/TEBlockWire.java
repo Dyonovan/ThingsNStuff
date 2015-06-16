@@ -1,4 +1,4 @@
-package com.dyonovan.thingsnstuff.tileentity;
+package com.dyonovan.thingsnstuff.common.tileentity;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

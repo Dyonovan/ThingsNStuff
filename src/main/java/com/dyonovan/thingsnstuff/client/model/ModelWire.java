@@ -1,6 +1,6 @@
-package com.dyonovan.thingsnstuff.model;
+package com.dyonovan.thingsnstuff.client.model;
 
-import com.dyonovan.thingsnstuff.tileentity.TEBlockWire;
+import com.dyonovan.thingsnstuff.common.tileentity.TEBlockWire;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

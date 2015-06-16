@@ -1,7 +1,7 @@
-package com.dyonovan.thingsnstuff.renderer;
+package com.dyonovan.thingsnstuff.client.renderer;
 
 import com.dyonovan.thingsnstuff.lib.Constants;
-import com.dyonovan.thingsnstuff.model.ModelWire;
+import com.dyonovan.thingsnstuff.client.model.ModelWire;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;

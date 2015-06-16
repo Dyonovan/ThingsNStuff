@@ -1,4 +1,4 @@
-package com.dyonovan.thingsnstuff.container;
+package com.dyonovan.thingsnstuff.common.container;
 
 import com.dyonovan.thingsnstuff.managers.ItemManager;
 import net.minecraft.inventory.IInventory;

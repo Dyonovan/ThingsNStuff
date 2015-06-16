@@ -1,6 +1,6 @@
-package com.dyonovan.thingsnstuff.gui;
+package com.dyonovan.thingsnstuff.client.gui;
 
-import com.dyonovan.thingsnstuff.container.ContainerTrashBag;
+import com.dyonovan.thingsnstuff.common.container.ContainerTrashBag;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;

@@ -1,4 +1,4 @@
-package com.dyonovan.thingsnstuff.renderer;
+package com.dyonovan.thingsnstuff.client.renderer;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;

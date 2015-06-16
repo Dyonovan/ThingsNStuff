@@ -1,4 +1,4 @@
-package com.dyonovan.thingsnstuff.blocks;
+package com.dyonovan.thingsnstuff.common.blocks;
 
 import com.dyonovan.thingsnstuff.handlers.BlockHandler;
 import com.dyonovan.thingsnstuff.lib.Constants;

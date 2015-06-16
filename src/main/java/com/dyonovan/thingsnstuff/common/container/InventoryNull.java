@@ -1,4 +1,4 @@
-package com.dyonovan.thingsnstuff.container;
+package com.dyonovan.thingsnstuff.common.container;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
