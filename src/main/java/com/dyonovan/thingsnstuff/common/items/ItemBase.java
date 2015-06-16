@@ -14,6 +14,10 @@ import java.util.List;
 public class ItemBase extends Item {
     private String itemDescription;
 
+    public ItemBase(String unlocalizedName) {
+        this(unlocalizedName, "");
+    }
+
     public ItemBase(String unlocalizedName, String description) {
         this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(ThingsNStuff.tabThingsNStuff);
