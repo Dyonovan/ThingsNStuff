@@ -1,5 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Gradle template
+eclipse/
+out/
 .gradle
 build/
 
@@ -43,3 +45,6 @@ $RECYCLE.BIN/
 hs_err_pid*
 
 
+ThingsNStuff.iml
+ThingsNStuff.ipr
+*.iws
