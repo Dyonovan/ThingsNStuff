@@ -1,3 +1,6 @@
 itemGroup.tabThingsNStuff=Things N' Stuff
 
 tile.thingsnstuff:blockSwitch.name=Redstone Switch
+
+item.trashBag.name=Trash Bag
+item.trashBag.description=Right click to open, drop items onto its icon

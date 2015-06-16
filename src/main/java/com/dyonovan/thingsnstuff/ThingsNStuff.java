@@ -2,6 +2,8 @@ package com.dyonovan.thingsnstuff;
 
 import com.dyonovan.thingsnstuff.handlers.BlockHandler;
 import com.dyonovan.thingsnstuff.lib.Constants;
+import com.dyonovan.thingsnstuff.managers.GuiManager;
+import com.dyonovan.thingsnstuff.managers.ItemManager;
 import com.dyonovan.thingsnstuff.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -10,6 +12,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -36,7 +39,14 @@ public class ThingsNStuff {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        //Init Blocks
         BlockHandler.init();
+
+        //Init items
+        ItemManager.init();
+
+        //Register Gui Manager
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiManager());
 
         proxy.registerRenderer();
     }

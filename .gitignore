@@ -137,3 +137,6 @@ crashlytics.properties
 crashlytics-build.properties
 
 
+ThingsNStuff.iml
+ThingsNStuff.ipr
+*.iws
