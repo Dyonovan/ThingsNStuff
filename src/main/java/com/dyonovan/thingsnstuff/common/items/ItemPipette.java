@@ -75,7 +75,7 @@ public class ItemPipette extends ItemBase {
                                     Fluid fluidType = info.fluid.getFluid();
 
                                     //Drain what was taken from the tank
-                                    tank.drain(dir, drained, true);
+                                    tank.drain(dir, new FluidStack(fluidType, drained), true);
 
                                     //Build and set tag
                                     NBTTagCompound newTag = new NBTTagCompound();
