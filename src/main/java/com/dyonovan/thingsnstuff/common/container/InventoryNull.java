@@ -12,8 +12,7 @@ public class InventoryNull implements IInventory {
     }
 
     @Override
-    public ItemStack getStackInSlot(int p_70301_1_)
-    {
+    public ItemStack getStackInSlot(int p_70301_1_) {
         return null;
     }
 

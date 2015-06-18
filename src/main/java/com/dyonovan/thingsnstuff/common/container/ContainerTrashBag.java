@@ -11,7 +11,7 @@ public class ContainerTrashBag extends Container {
 
         bindPlayerInventory(playerInv);
 
-        Slot replacer = new SlotNull(new InventoryNull(), 0, -1000, 0);
+        Slot replacer = new SlotNull(ICustomSlot.SLOT_SIZE.STANDARD, new InventoryNull(), 0, -1000, 0);
         addSlotToContainer(replacer);
         for(int i = 1; i < this.inventorySlots.size(); i++) {
             Slot temp = (Slot)this.inventorySlots.get(i);
@@ -28,6 +28,7 @@ public class ContainerTrashBag extends Container {
                 }
             }
         }
+        addSlotToContainer(new SlotNull(ICustomSlot.SLOT_SIZE.LARGE, new InventoryNull(), 0, 80, 35));
     }
 
     protected void bindPlayerInventory(InventoryPlayer inventoryPlayer) {
@@ -53,8 +54,8 @@ public class ContainerTrashBag extends Container {
             ItemStack stackInSlot = slotObject.getStack();
             stack = stackInSlot.copy();
 
-            if(slot != 0) {
-                if (!this.mergeItemStack(stackInSlot, 0, 1, true)) {
+            if(slot != this.inventorySlots.size() - 1) {
+                if (!this.mergeItemStack(stackInSlot, this.inventorySlots.size() - 1, this.inventorySlots.size(), true)) {
                     return null;
                 }
             }

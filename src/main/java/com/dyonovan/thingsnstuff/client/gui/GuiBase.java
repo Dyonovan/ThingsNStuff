@@ -1,6 +1,7 @@
 package com.dyonovan.thingsnstuff.client.gui;
 
 import com.dyonovan.thingsnstuff.client.gui.component.NinePatchRenderer;
+import com.dyonovan.thingsnstuff.common.container.ICustomSlot;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
@@ -38,7 +39,13 @@ public class GuiBase<T extends Container> extends GuiContainer {
         background.render(this, x, y, xSize, ySize);
 
         for(Object obj : inventory.inventorySlots) {
-            if(obj instanceof Slot) {
+            if(obj instanceof ICustomSlot) {
+                ICustomSlot slot = (ICustomSlot)obj;
+                if(slot.getSlotSize() == ICustomSlot.SLOT_SIZE.LARGE)
+                    this.drawTexturedModalRect(x + slot.getPoint().getFirst(), y + slot.getPoint().getSecond(), 0, 38, 26, 26);
+                else
+                    this.drawTexturedModalRect(x + slot.getPoint().getFirst(), y + slot.getPoint().getSecond(), 0, 20, 18, 18);
+            } else if(obj instanceof Slot) {
                 Slot slot = (Slot)obj;
                 this.drawTexturedModalRect(x + slot.xDisplayPosition - 1, y + slot.yDisplayPosition - 1, 0, 20, 18, 18);
             }
