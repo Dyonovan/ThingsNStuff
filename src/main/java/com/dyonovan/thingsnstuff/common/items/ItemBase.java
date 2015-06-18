@@ -24,10 +24,9 @@ public class ItemBase extends Item {
         this.itemDescription = description;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    @Override
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add(StatCollector.translateToLocal(itemDescription));
+    public void onToolTip(List<String> toolTip, ItemStack stack) {
+        if(!itemDescription.equalsIgnoreCase(""))
+            toolTip.add(StatCollector.translateToLocal(itemDescription));
     }
 
     @SideOnly(Side.CLIENT)
