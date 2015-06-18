@@ -28,7 +28,7 @@ public class NinePatchRenderer {
         u = 0;
         v = 0;
 
-        patchLocation = new ResourceLocation(Constants.MODID, "textures/gui/9Patch-guiBackGround.png");
+        patchLocation = new ResourceLocation(Constants.MODID, "textures/gui/guiComponents.png");
     }
 
     /**

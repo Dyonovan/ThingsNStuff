@@ -3,10 +3,12 @@ package com.dyonovan.thingsnstuff.client.gui;
 import com.dyonovan.thingsnstuff.client.gui.component.NinePatchRenderer;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.Slot;
 import net.minecraft.util.StatCollector;
 
 public class GuiBase<T extends Container> extends GuiContainer {
     protected String title;
+    protected T inventory;
     protected NinePatchRenderer background = new NinePatchRenderer();
 
     /**
@@ -18,6 +20,7 @@ public class GuiBase<T extends Container> extends GuiContainer {
      */
     public GuiBase(T container, int width, int height, String name) {
         super(container);
+        this.inventory = container;
         this.xSize = width;
         this.ySize = height;
         this.title = name;
@@ -33,5 +36,12 @@ public class GuiBase<T extends Container> extends GuiContainer {
         int x = (width - xSize) / 2;
         int y = (height - ySize) / 2;
         background.render(this, x, y, xSize, ySize);
+
+        for(Object obj : inventory.inventorySlots) {
+            if(obj instanceof Slot) {
+                Slot slot = (Slot)obj;
+                this.drawTexturedModalRect(x + slot.xDisplayPosition - 1, y + slot.yDisplayPosition - 1, 0, 20, 18, 18);
+            }
+        }
     }
 }
