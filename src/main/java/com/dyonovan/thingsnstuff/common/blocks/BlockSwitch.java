@@ -1,26 +1,27 @@
 package com.dyonovan.thingsnstuff.common.blocks;
 
-import com.dyonovan.thingsnstuff.handlers.BlockHandler;
+import com.dyonovan.thingsnstuff.common.tileentity.TileSwitch;
+import com.dyonovan.thingsnstuff.managers.BlockManager;
 import com.dyonovan.thingsnstuff.lib.Constants;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockSwitch extends Block {
+public class BlockSwitch extends BlockBase {
 
     @SideOnly(Side.CLIENT)
     private IIcon top;
 
     public boolean isOn;
 
-    public BlockSwitch(boolean isOn) {
-        super(Material.circuits);
+    public BlockSwitch(boolean isOn, String name, Class<? extends TileEntity> tileClass) {
+        super(Material.circuits, name, TileSwitch.class);
 
         this.isOn = isOn;
     }
@@ -43,7 +44,7 @@ public class BlockSwitch extends Block {
     }
 
     @Override
-    public int isProvidingWeakPower(IBlockAccess blockAccess, int x, int y, int z, int unknown) {
+    public int isProvidingWeakPower(IBlockAccess blockAccess, int x, int y, int z, int side) {
         return (isOn) ? 15 : 0;
     }
 
@@ -59,8 +60,8 @@ public class BlockSwitch extends Block {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta,
                                     float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            if (isOn) world.setBlock(x, y, z, BlockHandler.blockSwitch);
-            else world.setBlock(x, y, z, BlockHandler.blockSwitchOn);
+            if (isOn) world.setBlock(x, y, z, BlockManager.blockSwitch);
+            else world.setBlock(x, y, z, BlockManager.blockSwitchOn);
             world.playSoundEffect((double) x + 0.5D, (double) y + 0.5D, (double) z + 0.5D, "random.click", 0.3F, 0.6F);
 
             world.notifyBlocksOfNeighborChange(x - 1, y, z, this);
@@ -70,7 +71,6 @@ public class BlockSwitch extends Block {
             world.notifyBlocksOfNeighborChange(x, y, z - 1, this);
             world.notifyBlocksOfNeighborChange(x, y, z + 1, this);
         }
-
 
         return true;
     }
@@ -90,5 +90,4 @@ public class BlockSwitch extends Block {
     {
         return false;
     }
-
 }

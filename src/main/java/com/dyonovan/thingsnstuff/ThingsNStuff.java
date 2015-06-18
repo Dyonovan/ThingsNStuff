@@ -1,6 +1,6 @@
 package com.dyonovan.thingsnstuff;
 
-import com.dyonovan.thingsnstuff.handlers.BlockHandler;
+import com.dyonovan.thingsnstuff.managers.BlockManager;
 import com.dyonovan.thingsnstuff.lib.Constants;
 import com.dyonovan.thingsnstuff.managers.GuiManager;
 import com.dyonovan.thingsnstuff.managers.ItemManager;
@@ -40,7 +40,7 @@ public class ThingsNStuff {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         //Init Blocks
-        BlockHandler.init();
+        BlockManager.init();
 
         //Init items
         ItemManager.init();

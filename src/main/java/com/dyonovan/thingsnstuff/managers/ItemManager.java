@@ -13,7 +13,7 @@ public class ItemManager {
     public static void init() {
         trashBag = new ItemTrashBag("trashBag", "item.trashBag.description");
 
-        GameRegistry.registerItem(trashBag, "thingsnstuff:trashBag");
+        GameRegistry.registerItem(trashBag, "trashBag");
 
         CraftingManager.getInstance().addRecipe(new ItemStack(trashBag, 1),
                 "S S",

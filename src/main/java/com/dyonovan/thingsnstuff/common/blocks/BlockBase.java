@@ -18,7 +18,8 @@ public class BlockBase extends BlockContainer {
         this.tileClass = tileClass;
 
         this.setBlockName(Constants.MODID + ":" + name);
-        this.setCreativeTab(ThingsNStuff.tabThingsNStuff);
+        if (!name.equals("blockSwitchOn"))
+            this.setCreativeTab(ThingsNStuff.tabThingsNStuff);
         this.setHardness(2.0F);
     }
 
