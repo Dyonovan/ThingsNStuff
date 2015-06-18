@@ -22,8 +22,6 @@ public class GuiTrashBag extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
-        GL11.glColor4f(1f, 1f, 1f, 1f);
-
         this.mc.getTextureManager().bindTexture(texture);
 
         int x = (width - xSize) / 2;
