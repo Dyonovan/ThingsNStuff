@@ -1,6 +1,7 @@
 package com.dyonovan.thingsnstuff.client.renderer;
 
 import com.dyonovan.thingsnstuff.common.items.ItemPipette;
+import com.dyonovan.thingsnstuff.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -55,7 +56,7 @@ public class ItemRendererPipette implements IItemRenderer {
         if(item.hasTagCompound()) {
             Fluid onStack = FluidRegistry.getFluid(item.getTagCompound().getInteger(ItemPipette.LIQUID_TYPE));
             if(onStack != null) {
-                Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("textures/atlas/items.png"));
+                RenderUtils.bindMinecraftItemSheet();
 
                 GL11.glEnable(3042);
                 GL11.glBlendFunc(770, 771);
@@ -81,7 +82,7 @@ public class ItemRendererPipette implements IItemRenderer {
                 }
                 localTessellator.draw();
 
-                Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("textures/atlas/blocks.png"));
+                RenderUtils.bindMinecraftBlockSheet();
 
                 GL11.glDepthFunc(514);
                 GL11.glDepthMask(false);
@@ -112,7 +113,7 @@ public class ItemRendererPipette implements IItemRenderer {
             }
         }
 
-        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("textures/atlas/items.png"));
+        RenderUtils.bindMinecraftItemSheet();
 
         IIcon itemIcon = item.getIconIndex();
         if (!type.equals(IItemRenderer.ItemRenderType.INVENTORY)) {

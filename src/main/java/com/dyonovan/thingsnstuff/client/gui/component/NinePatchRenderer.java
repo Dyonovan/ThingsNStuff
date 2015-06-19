@@ -1,6 +1,6 @@
 package com.dyonovan.thingsnstuff.client.gui.component;
 
-import com.dyonovan.thingsnstuff.lib.Constants;
+import com.dyonovan.thingsnstuff.util.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -27,8 +27,6 @@ public class NinePatchRenderer {
     public NinePatchRenderer() {
         u = 0;
         v = 0;
-
-        patchLocation = new ResourceLocation(Constants.MODID, "textures/gui/guiComponents.png");
     }
 
     /**
@@ -131,7 +129,11 @@ public class NinePatchRenderer {
 
         if(color != null)
             setColor(color);
-        Minecraft.getMinecraft().getTextureManager().bindTexture(patchLocation);
+
+        if(patchLocation != null)
+            Minecraft.getMinecraft().getTextureManager().bindTexture(patchLocation);
+        else
+            RenderUtils.bindGuiComponentsSheet();
 
         GL11.glTranslatef(x, y, 0);
         renderBackground(gui, width, height);

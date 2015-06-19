@@ -1,5 +1,6 @@
 package com.dyonovan.thingsnstuff.client.gui;
 
+import com.dyonovan.thingsnstuff.client.gui.component.BaseComponent;
 import com.dyonovan.thingsnstuff.client.gui.component.NinePatchRenderer;
 import com.dyonovan.thingsnstuff.common.container.ICustomSlot;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -7,12 +8,13 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.util.StatCollector;
 
-import java.awt.*;
+import java.util.ArrayList;
 
-public class GuiBase<T extends Container> extends GuiContainer {
+public abstract class GuiBase<T extends Container> extends GuiContainer {
     protected String title;
     protected T inventory;
     protected NinePatchRenderer background = new NinePatchRenderer();
+    protected ArrayList<BaseComponent> components;
 
     /**
      * Constructor for All Guis
@@ -27,6 +29,35 @@ public class GuiBase<T extends Container> extends GuiContainer {
         this.xSize = width;
         this.ySize = height;
         this.title = name;
+
+        components = new ArrayList<>();
+        addComponents();
+    }
+
+    /**
+     * This will be called after the GUI has been initialized and should be where you add all components.
+     */
+    public abstract void addComponents();
+
+    @Override
+    protected void mouseClicked(int x, int y, int button) {
+        super.mouseClicked(x, y, button);
+        for(BaseComponent component : components)
+            if(component.isMouseOver(x - this.guiLeft, y - this.guiTop)) component.mouseDown(x - this.guiLeft, y - this.guiTop, button);
+    }
+
+    @Override
+    protected void mouseMovedOrUp(int x, int y, int button) {
+        super.mouseMovedOrUp(x, y, button);
+        for(BaseComponent component : components)
+            if(component.isMouseOver(x - this.guiLeft, y - this.guiTop)) component.mouseUp(x - this.guiLeft, y - this.guiTop, button);
+    }
+
+    @Override
+    protected void mouseClickMove(int x, int y, int button, long time) {
+        super.mouseClickMove(x, y, button, time);
+        for(BaseComponent component : components)
+            if(component.isMouseOver(x - this.guiLeft, y - this.guiTop)) component.mouseDrag(x - this.guiLeft, y - this.guiTop, button, time);
     }
 
     @Override
@@ -38,8 +69,11 @@ public class GuiBase<T extends Container> extends GuiContainer {
     protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
         int x = (width - xSize) / 2;
         int y = (height - ySize) / 2;
+
+        //Render the Background
         background.render(this, x, y, xSize, ySize);
 
+        //Render Slots for inventory
         for(Object obj : inventory.inventorySlots) {
             if(obj instanceof ICustomSlot) {
                 ICustomSlot slot = (ICustomSlot)obj;
@@ -51,6 +85,11 @@ public class GuiBase<T extends Container> extends GuiContainer {
                 Slot slot = (Slot)obj;
                 this.drawTexturedModalRect(x + slot.xDisplayPosition - 1, y + slot.yDisplayPosition - 1, 0, 20, 18, 18);
             }
+        }
+
+        //Render Components
+        for(BaseComponent component : components) {
+            component.render(guiLeft, guiTop);
         }
     }
 }
