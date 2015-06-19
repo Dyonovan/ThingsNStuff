@@ -32,8 +32,10 @@ public class ItemPipette extends ItemBase {
         if(stack.hasTagCompound() && stack.getTagCompound().getBoolean(LIQUID_TAG)) {
             toolTip.add(MinecraftStringColor.DARK_BLUE + "Fluid: " + MinecraftStringColor.WHITE + FluidRegistry.getFluid(stack.getTagCompound().getInteger(LIQUID_TYPE)).getLocalizedName());
             toolTip.add(MinecraftStringColor.YELLOW + "Amount: " + MinecraftStringColor.WHITE + stack.getTagCompound().getInteger(LIQUID_AMOUNT) + " mb");
-        } else
-            toolTip.add("Right click a block with a tank to drain a maximum of 250mb");
+        } else {
+            toolTip.add("Right click a block with a tank");
+            toolTip.add("Holds a maximum of 250mb");
+        }
     }
 
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int a, float b, float c, float f) {
