@@ -61,7 +61,6 @@ public class ItemPipette extends ItemBase {
                     }
                 }
             }
-            return false;
         } else {
             if(clickedOn.hasTileEntity(world.getBlockMetadata(x, y, z))) {
                 TileEntity tile = world.getTileEntity(x, y, z);
