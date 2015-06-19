@@ -7,6 +7,8 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.util.StatCollector;
 
+import java.awt.*;
+
 public class GuiBase<T extends Container> extends GuiContainer {
     protected String title;
     protected T inventory;

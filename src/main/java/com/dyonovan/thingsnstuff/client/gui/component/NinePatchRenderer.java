@@ -51,7 +51,6 @@ public class NinePatchRenderer {
      * different behavior. One instance would be for a tab, you can prevent the left edge from rendering in that way
      */
 
-    //TODO: Create Rendering Code
     //Corners
     protected void renderTopLeftCorner(Gui gui) {
         gui.drawTexturedModalRect(0, 0, u, v, 4, 4);
@@ -151,7 +150,7 @@ public class NinePatchRenderer {
     }
 
     public static void setColor(Color color) {
-        GL11.glColor4d(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+        GL11.glColor4f(color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, color.getAlpha() / 255F);
     }
 
 }
