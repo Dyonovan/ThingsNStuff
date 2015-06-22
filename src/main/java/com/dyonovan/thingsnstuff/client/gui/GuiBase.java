@@ -63,6 +63,8 @@ public abstract class GuiBase<T extends Container> extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         fontRendererObj.drawString(StatCollector.translateToLocal(title), xSize / 2 - fontRendererObj.getStringWidth(StatCollector.translateToLocal(title)) / 2, 6, 4210752);
+        for(BaseComponent component : components)
+            component.renderOverlay(guiLeft, guiTop);
     }
 
     @Override

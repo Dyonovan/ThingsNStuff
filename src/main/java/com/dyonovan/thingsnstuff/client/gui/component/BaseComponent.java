@@ -2,7 +2,6 @@ package com.dyonovan.thingsnstuff.client.gui.component;
 
 import com.dyonovan.thingsnstuff.client.gui.component.listeners.IMouseEventListener;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiScreen;
 
 public abstract class BaseComponent extends Gui {
 
