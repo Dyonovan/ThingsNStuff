@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Slider<V extends Object> extends BaseComponent {
+public class Slider<V> extends BaseComponent {
     protected int width;
     protected int boxX;
     protected boolean isDragging;
@@ -39,6 +39,7 @@ public class Slider<V extends Object> extends BaseComponent {
                                   public void onMouseDown(BaseComponent component, int mouseX, int mouseY, int button) {
                                       isDragging = true;
                                       boxX = mouseX;
+                                      updateCurrentSelection();
                                   }
 
                                   @Override
@@ -130,6 +131,10 @@ public class Slider<V extends Object> extends BaseComponent {
 
         int newPosition = (int) Math.floor(((boxX - (xPos + 1)) * (selectables.size() - 1)) / ((xPos + width - 5) - (xPos + 1)));
         currentSelected = selectables.get(newPosition);
+    }
+
+    public V getCurrentSelected() {
+        return currentSelected;
     }
 
     @Override
